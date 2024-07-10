@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic_Tac_Toe</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="body">
+    <div class="container">
+        <h1>TIC TAC TOE</h1>
+        <div class="box">
+            <div class="section">
+                <button class="btn" id="0"></button>
+                <button class="btn" id="1"></button>
+                <button class="btn" id="2"></button>
+            </div>
+            <div class="section">
+                <button class="btn" id="3"></button>
+                <button class="btn" id="4"></button>
+                <button class="btn" id="5"></button>
+            </div>
+            <div class="section">
+                <button class="btn" id="6"></button>
+                <button class="btn" id="7"></button>
+                <button class="btn" id="8"></button>
+            </div>
+        </div>
+    </div>
+    <h1 class="result"></h1>
+</body>
+<script>
+    let a=[8];
+    let logo="";
+    let bol=true;
+    let btnn =document.querySelectorAll(".btn");
+    btnn.forEach((one)=>{
+        one.addEventListener("click",(e)=>{
+        console.log("Button has pressed")
+        console.log(e.target.id)
+        let id=Number(e.target.id);
+        if(bol){
+            one.innerHTML="X";
+            a[id]="1";
+            logo="X";
+            bol=false;
+        }
+        else{
+            one.innerHTML="0";
+            a[id]="2";
+            logo="0";
+            bol=true;
+        }
+        one.disabled=true;
+        check(logo);
+    })
+    })
+    function check(logo){
+        
+        if((a[0] == a[1] && a[0] == a[2] && a[2] == a[1] && a[0] != null && a[2] != null && a[1] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[3] == a[4] && a[3] == a[5] && a[5] == a[4] && a[3] != null && a[4] != null && a[5] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[6] == a[7] && a[6] == a[8] && a[8] == a[7] && a[6] != null && a[8] != null && a[7] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[0] == a[3] && a[0] == a[6] && a[6] == a[3] && a[0] != null && a[3] != null && a[6] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[1] == a[4] && a[7] == a[7] && a[7] == a[4] && a[1] != null && a[4] != null && a[7] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[2] == a[5] && a[2] == a[8] && a[8] == a[5] && a[2] != null && a[5] != null && a[8] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[0] == a[4] && a[0] == a[8] && a[8] == a[4] && a[0] != null && a[4] != null && a[8] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+        else if((a[2] == a[4] && a[2] == a[6] && a[6] == a[4] && a[2] != null && a[4] != null && a[6] != null)){
+            document.querySelector(".result").innerHTML=`PLAYER '${logo}' IS WINNER`;
+            action();
+        }
+    }
+    function action(){
+        btnn.forEach((two)=>{
+                two.disabled=true;
+            })
+    }
+</script>
+</html>
